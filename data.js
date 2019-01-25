@@ -105,7 +105,7 @@ function loadData(){
         listItem.innerText = students[i].name;
 
         dataList.appendChild(listItem);
-        i = i + 1; // Alternatively, use i++;
+        i++; // Alternatively, use i++;
 
         // Other ways:
         // i += 2;
