@@ -1,9 +1,28 @@
-var students = [
-  { id: "1122222", name: "John", score: 90 }, // 0 {Object} => students[0] => students[0].score => total
-  { id: "2223333", name: "Larry", score: 60 }, // 1
-  { id: "4455555", name: "Joseph", score: 50 }, // 2
-  { id: "5526666", name: "Karla", score: 80 }
-];
+var students = [];
+
+const URL = "https://web-students-1aa35.firebaseio.com/group-01.json";
+
+function fetchData(){
+
+  var request = new XMLHttpRequest();
+  request.open('GET', URL, true);
+
+  request.onload = function() {
+    const OK = 200;
+
+    if (request.status !== OK) {
+      document.innerHTML = 'An error occurred during your request: ' +  request.status + ' ' + request.statusText;
+      return;
+    }
+    var remoteStudents = JSON.parse(request.responseText);
+
+    remoteStudents.forEach(element => {
+      students.push(element);
+    });
+    loadDataGrid();
+  };
+  request.send();
+}
 
 document.write("<h3>JSON</h3>");
 document.write("<pre class='alert alert-secondary'>"); // 1) Bootstrap class
@@ -127,6 +146,9 @@ const formToJSON = elements =>
   );
 
 ready(function() {
+
+  fetchData();
+
   document
     .querySelector("#addStudent")
     .addEventListener("submit", function(event) {
