@@ -155,6 +155,7 @@ ready(function() {
       event.preventDefault();
       let student = formToJSON(event.target.elements);
       students.push(student);
+      // Reload data
       loadDataGrid();
       event.target.reset();
       $('#myModal').modal('hide');
