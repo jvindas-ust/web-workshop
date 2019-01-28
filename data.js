@@ -135,5 +135,6 @@ ready(function() {
       students.push(student);
       loadDataGrid();
       event.target.reset();
+      $('#myModal').modal('hide');
     });
 });

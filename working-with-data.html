@@ -12,39 +12,101 @@
       crossorigin="anonymous"
     />
     <link rel="stylesheet" type="text/css" media="screen" href="shared.css" />
+    <script
+      src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+      integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+      integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+      integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+      crossorigin="anonymous"
+    ></script>
     <script src="data.js"></script>
   </head>
   <body class="container" onload="loadDataGrid()">
+    <div
+      class="modal fade"
+      id="myModal"
+      tabindex="-1"
+      role="dialog"
+      aria-labelledby="exampleModalLabel"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title">Add a Student</h5>
+            <button
+              type="button"
+              class="close"
+              data-dismiss="modal"
+              aria-label="Close"
+            >
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <form class="form" id="addStudent">
+            <div class="modal-body">
+              <div class="form-group ">
+                <label for="id" class="col-2 col-form-label">Id: </label>
+                <div class="col-10">
+                  <input class="form-control" type="text" value="" name="id" />
+                </div>
+              </div>
+              <div class="form-group ">
+                <label for="name" class="col-2 col-form-label">Name: </label>
+                <div class="col-10">
+                  <input
+                    class="form-control"
+                    type="text"
+                    value=""
+                    name="name"
+                  />
+                </div>
+              </div>
+              <div class="form-group ">
+                <label for="score" class="col-2 col-form-label">Score:</label>
+                <div class="col-10">
+                  <input
+                    class="form-control"
+                    type="text"
+                    value=""
+                    name="score"
+                  />
+                </div>
+              </div>
+            </div>
+            <div class="modal-footer">
+              <button type="submit" class="btn btn-primary">
+                Save changes
+              </button>
+              <button
+                type="button"
+                class="btn btn-secondary"
+                data-dismiss="modal"
+              >
+                Close
+              </button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
     <header class="jumbotron">
       <h1>List of students</h1>
-
-      <form class="form-inline" id="addStudent">
-        <div class="form-group ">
-          <label for="id" class="col-2 col-form-label">Id: </label>
-          <div class="col-10">
-            <input class="form-control" type="text" value="" name="id" />
-          </div>
-        </div>
-        <div class="form-group ">
-          <label for="name" class="col-2 col-form-label">Name: </label>
-          <div class="col-10">
-            <input class="form-control" type="text" value="" name="name" />
-          </div>
-        </div>
-        <div class="form-group ">
-          <label for="score" class="col-2 col-form-label">Score:</label>
-          <div class="col-10">
-            <input
-              class="form-control"
-              type="text"
-              value=""
-              name="score"
-            />
-          </div>
-        </div>
-
-        <button type="submit" class="btn btn-primary">Add</button>
-      </form>
+      <button
+        class="btn btn-primary"
+        data-toggle="modal"
+        data-target="#myModal"
+      >
+        Add a student
+      </button>
     </header>
     <section class="row-fluid">
       <section class="btn-group">
