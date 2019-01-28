@@ -1,43 +1,70 @@
 <!DOCTYPE html>
 <html>
-<head>
+  <head>
     <meta charset="utf-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <title>Working with data</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css"
+      integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS"
+      crossorigin="anonymous"
+    />
     <link rel="stylesheet" type="text/css" media="screen" href="shared.css" />
     <script src="data.js"></script>
-</head>
-<body class="container" onload="loadDataGrid()">
+  </head>
+  <body class="container" onload="loadDataGrid()">
     <header class="jumbotron">
-        <h1>List of students</h1>
+      <h1>List of students</h1>
+
+      <form class="form-inline" id="addStudent">
+        <div class="form-group ">
+          <label for="id" class="col-2 col-form-label">Id: </label>
+          <div class="col-10">
+            <input class="form-control" type="text" value="" name="id" />
+          </div>
+        </div>
+        <div class="form-group ">
+          <label for="name" class="col-2 col-form-label">Name: </label>
+          <div class="col-10">
+            <input class="form-control" type="text" value="" name="name" />
+          </div>
+        </div>
+        <div class="form-group ">
+          <label for="score" class="col-2 col-form-label">Score:</label>
+          <div class="col-10">
+            <input
+              class="form-control"
+              type="text"
+              value=""
+              name="score"
+            />
+          </div>
+        </div>
+
+        <button type="submit" class="btn btn-primary">Add</button>
+      </form>
     </header>
-    
     <section class="row-fluid">
-        <section class="btn-group">
-            <button class="btn btn-primary" onclick="loadDataGrid()">Load</button>
-            <button class="btn btn-secondary" onclick="displayAverage()">Average</button>
-        </section>
+      <section class="btn-group">
+        <button class="btn btn-primary" onclick="loadDataGrid()">Load</button>
+        <button class="btn btn-secondary" onclick="displayAverage()">
+          Average
+        </button>
+      </section>
     </section>
     <section class="row-fluid">
-        <section id="dataList" class="border">
-            <div class="row">
-                <div class="col-md">
-                    <b>Id</b>
-                </div>
-                <div class="col-md">
-                    <b>Name</b>
-                </div>
-                <div class="col-md">
-                    <b>Score</b>
-                </div>
-            </div>
-        </section>
+      <section id="dataList" class="border">
+        <div class="row">
+          <div class="col-md"><b>Id</b></div>
+          <div class="col-md"><b>Name</b></div>
+          <div class="col-md"><b>Score</b></div>
+        </div>
+      </section>
     </section>
     <section class="row-fluid">
-        <section id="resultSection" class="alert alert-info">
-        </section>
+      <section id="resultSection" class="alert alert-info"></section>
     </section>
-</body>
+  </body>
 </html>
